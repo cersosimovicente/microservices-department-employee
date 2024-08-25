@@ -1,12 +1,12 @@
 server:
-  port: 8081
+  port: 8082
 spring:
   application:
     name:
-      microservice-employee
+      microservice-department
 
   datasource:
-    url: jdbc:h2:mem:employeeDb
+    url: jdbc:h2:mem:departmentDb
     username: sa
     password: password
     driverClassName: org.h2.Driver
