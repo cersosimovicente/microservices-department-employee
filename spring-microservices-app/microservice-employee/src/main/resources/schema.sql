@@ -3,5 +3,5 @@ CREATE TABLE IF NOT EXISTS employees (
     first_name VARCHAR(30),
     last_name VARCHAR(30),
     email VARCHAR(50),
-    department_code VARCHAR(5)
+    department_code int
 );

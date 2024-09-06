@@ -5,10 +5,7 @@ import com.microservice.department.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/departments")
@@ -23,7 +20,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getDepartmentById(Long id) {
+    public ResponseEntity<?> getDepartmentById(@PathVariable Long id) {
         Department department = departmentService.findDepartmentById(id);
         if (department == null) {
             return ResponseEntity.notFound().build();
@@ -36,4 +33,7 @@ public class DepartmentController {
     public ResponseEntity<?> saveDepartment(Department department) {
         return new ResponseEntity<>(departmentService.saveDepartment(department), HttpStatus.CREATED);
     }
+
+
+
 }

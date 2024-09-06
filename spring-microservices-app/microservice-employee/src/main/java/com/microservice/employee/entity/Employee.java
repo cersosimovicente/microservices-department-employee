@@ -24,6 +24,5 @@ public class Employee {
     @Column(length = 50)
     private String email;
 
-    @Column(length = 5)
-    private String departmentCode;
+    private Long departmentCode;
 }

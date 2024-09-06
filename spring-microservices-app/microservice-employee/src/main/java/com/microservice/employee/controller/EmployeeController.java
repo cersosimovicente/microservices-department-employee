@@ -1,5 +1,6 @@
 package com.microservice.employee.controller;
 
+import com.microservice.employee.dto.EmployeeDetailsDTO;
 import com.microservice.employee.entity.Employee;
 import com.microservice.employee.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,14 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeService.saveEmployee(employee), HttpStatus.CREATED);
     }
 
+    @GetMapping("/{id}/details")
+    public ResponseEntity<?> getEmployeeNameById(@PathVariable Long id) {
+        EmployeeDetailsDTO employee = employeeService.getEmployeeWithDepartment(id);
+        if (employee == null) {
+            return ResponseEntity.notFound().build();
+        }else {
+            return ResponseEntity.ok(employee);
+        }
+    }
 
 }
