@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: microservice-department
+  cloud:
+    config:
+      uri: http://localhost:8888  # URL del Config Server
+      fail-fast: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
